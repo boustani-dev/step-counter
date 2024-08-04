@@ -9,12 +9,12 @@ part 'stop_watch_state.dart';
 
 class StopWatchBloc extends Bloc<StopWatchEvent, StopWatchState> {
   final Ticker _ticker;
-  int duration = 60;
+  int duration = 0;
   StreamSubscription<int>? _tickerSubscription;
 
   StopWatchBloc({required Ticker ticker})
       : _ticker = ticker,
-        super(const StopWatchState(status: StopWatchInitial(60))) {
+        super(const StopWatchState(status: StopWatchInitial(0))) {
     on<OnStartedTimer>(_onStarted);
     on<TimerTicked>(_onTicked);
     on<OnPausedTimer>(_onPaused);
