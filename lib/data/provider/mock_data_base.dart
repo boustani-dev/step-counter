@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../workout.dart';
+import '../model/workout.dart';
 
 class MockDataBase {
-
- static final List<Workout> workouts = [
+  static final List<Workout> workouts = [
     Workout(
       name: "Push-ups",
       description: "An exercise to strengthen upper body.",

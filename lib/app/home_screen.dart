@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:step_counter/core/colors.dart';
-import 'package:step_counter/data/model/provider/mock_data_base.dart';
 import 'package:step_counter/data/model/workout.dart';
 import 'package:step_counter/features/stop_watch/components/action_button.dart';
 import 'package:step_counter/features/stop_watch/components/workout_list.dart';
+import '../data/provider/mock_data_base.dart';
 import '../features/stop_watch/components/stopwatch.dart';
 
 class HomeScreen extends StatefulWidget {

@@ -1,10 +1,12 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/colors.dart';
-import '../../../data/model/provider/mock_data_base.dart';
 import '../../../data/model/workout.dart';
+import '../../../data/provider/mock_data_base.dart';
+import '../bloc/stop_watch_bloc.dart';
 
 class workoutList extends StatefulWidget {
   final Function(Workout) onTapWorkOut;
@@ -41,6 +43,12 @@ class _workoutListState extends State<workoutList> {
                   selectedIndex = index;
                 });
                 widget.onTapWorkOut(workout[index]);
+                context
+                    .read<StopWatchBloc>()
+                    .add(OnChangeDuration(duration: workout[index].time));
+                context
+                    .read<StopWatchBloc>()
+                    .add(OnStartedTimer(workout[index].time));
               },
               borderRadius: BorderRadius.circular(15),
               child: ListTile(
