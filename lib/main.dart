@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:step_counter/app/home_screen.dart';
+import 'package:step_counter/features/stop_watch/bloc/stop_watch_bloc.dart';
+import 'package:step_counter/features/stop_watch/ticker.dart';
 
 String formatDate(DateTime d) {
   return d.toString().substring(0, 19);
@@ -14,10 +17,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Step Counter',
-      home: HomeScreen(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => StopWatchBloc(ticker: const Ticker()),
+          ),
+        ],
+        child: const HomeScreen(),
+      ),
     );
   }
 }

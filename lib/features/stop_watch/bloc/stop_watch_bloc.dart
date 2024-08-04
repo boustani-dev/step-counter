@@ -14,7 +14,7 @@ class StopWatchBloc extends Bloc<StopWatchEvent, StopWatchState> {
 
   StopWatchBloc({required Ticker ticker})
       : _ticker = ticker,
-        super(StopWatchState(status: StopWatchInitial(60))) {
+        super(const StopWatchState(status: StopWatchInitial(60))) {
     on<OnStartedTimer>(_onStarted);
     on<TimerTicked>(_onTicked);
     on<OnPausedTimer>(_onPaused);
