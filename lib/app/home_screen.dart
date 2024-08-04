@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(
                           height: size.height * 0.03,
                         ),
-                        const StopWatch(),
+                         StopWatch(initValue: currentWorkout.time,),
                         SizedBox(
                           height: size.height * 0.05,
                         ),

@@ -14,7 +14,7 @@ class MockDataBase {
     Workout(
       name: "Squats",
       description: "An exercise to strengthen legs and glutes.",
-      time: 15,
+      time: 100,
       icon: CupertinoIcons.person_2_square_stack,
     ),
     Workout(
