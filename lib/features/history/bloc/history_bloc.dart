@@ -10,9 +10,11 @@ part 'history_state.dart';
 
 class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
   IsarServices isarServices = IsarServices();
-  HistoryBloc() : super(const HistoryState(status: HistoryInitial())) {
+  HistoryBloc()
+      : super(const HistoryState(status: HistoryInitial())) {
     on<OnAddWorkout>(_onAddWorkout);
     on<OnGetWorkouts>(_onGetWorkout);
+    add(OnGetWorkouts());
   }
 
   Future<void> _onGetWorkout(

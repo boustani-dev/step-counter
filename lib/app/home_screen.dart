@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:step_counter/core/colors.dart';
 import 'package:step_counter/data/model/workout.dart';
+import 'package:step_counter/features/history/view/history_screen.dart';
 import 'package:step_counter/features/step_counter/component/step_counter.dart';
 import 'package:step_counter/features/stop_watch/components/action_button.dart';
 import 'package:step_counter/features/stop_watch/components/workout_list.dart';
@@ -9,7 +11,9 @@ import '../data/provider/mock_data_base.dart';
 import '../features/stop_watch/components/stopwatch.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -35,6 +39,19 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Stack(
                 children: [
+                  Positioned(
+                    top: 10,
+                    left: 0,
+                    child: Container(
+                      height: size.height / 3,
+                      width: size.width,
+                      decoration: const BoxDecoration(
+                          color: AppColors.primary,
+                          borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(180),
+                              bottomLeft: Radius.circular(180))),
+                    ),
+                  ),
                   Container(
                     height: size.height / 3,
                     width: size.width,
@@ -50,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             bottomRight: Radius.circular(180),
                             bottomLeft: Radius.circular(180))),
                   ),
+                  buildHistoryButton(context),
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width,
                     child: Column(
@@ -85,6 +103,26 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Positioned buildHistoryButton(BuildContext context) {
+    return Positioned(
+      left: 15,
+      top: 15,
+      child: Container(
+        decoration:
+            const BoxDecoration(shape: BoxShape.circle, color: Colors.white54),
+        child: IconButton(
+            onPressed: () {
+              // Navigator.of(context).pushNamed(HistoryScreen.routeName);
+              Navigator.pushNamed(context, HistoryScreen.routeName);
+            },
+            icon: const Icon(
+              Icons.history,
+              color: AppColors.secondary,
+            )),
       ),
     );
   }

@@ -3,11 +3,18 @@ import 'package:path_provider/path_provider.dart';
 import 'package:step_counter/data/model/workout.dart';
 
 class IsarServices {
-  late Future<Isar> db;
+  // Singleton pattern implementation
+  static final IsarServices _instance = IsarServices._internal();
+  factory IsarServices() => _instance;
+  IsarServices._internal();
 
-  IsarServices() {
-    db = _initDb();
+  Future<Isar>? _db;
+
+  Future<Isar> get db async {
+    _db ??= _initDb(); // Ensure initialization if not already done
+    return _db!;
   }
+
 
   Future<Isar> _initDb() async {
     final dir = await getApplicationDocumentsDirectory();

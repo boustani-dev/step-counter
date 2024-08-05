@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:step_counter/features/history/bloc/history_bloc.dart';
 
 import '../../../core/colors.dart';
 import '../../../data/model/workout.dart';
@@ -49,6 +50,10 @@ class _workoutListState extends State<workoutList> {
                 context
                     .read<StopWatchBloc>()
                     .add(OnStartedTimer(workout[index].time));
+
+                ///added a workout to history database
+                BlocProvider.of<HistoryBloc>(context)
+                    .add(OnAddWorkout(workout[index]));
               },
               borderRadius: BorderRadius.circular(15),
               child: ListTile(
