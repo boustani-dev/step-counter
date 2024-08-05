@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:step_counter/app/home_screen.dart';
+import 'package:step_counter/features/step_counter/bloc/step_counter_bloc.dart';
 import 'package:step_counter/features/stop_watch/bloc/stop_watch_bloc.dart';
 import 'package:step_counter/features/stop_watch/ticker.dart';
 
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (_) => StopWatchBloc(ticker: const Ticker()),
+          ),
+          BlocProvider(
+            create: (_) => StepCounterBloc(),
           ),
         ],
         child: const HomeScreen(),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:step_counter/core/colors.dart';
 import 'package:step_counter/data/model/workout.dart';
+import 'package:step_counter/features/step_counter/component/step_counter.dart';
 import 'package:step_counter/features/stop_watch/components/action_button.dart';
 import 'package:step_counter/features/stop_watch/components/workout_list.dart';
 import '../data/provider/mock_data_base.dart';
@@ -54,36 +55,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'Steps',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineLarge!
-                              .copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 55),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          '1145',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineLarge!
-                              .copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 40),
-                        ),
+                        const StepCounter(),
                         SizedBox(
                           height: size.height * 0.03,
                         ),
-                         StopWatch(initValue: currentWorkout.time,),
+                        StopWatch(
+                          initValue: currentWorkout.time,
+                        ),
                         SizedBox(
                           height: size.height * 0.05,
                         ),
