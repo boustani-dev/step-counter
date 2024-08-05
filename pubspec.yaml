@@ -42,8 +42,14 @@ dependencies:
   bloc: ^8.1.4
   percent_indicator: ^4.2.3
   flutter_spinkit: ^5.2.1
+  isar: ^3.1.0+1
+  isar_flutter_libs:
+  path_provider: ^2.1.4
+
 
 dev_dependencies:
+  isar_generator:
+  build_runner:
   flutter_test:
     sdk: flutter
 
