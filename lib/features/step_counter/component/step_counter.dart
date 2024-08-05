@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:step_counter/core/utils/loading_kit.dart';
 import 'package:step_counter/features/step_counter/bloc/step_counter_bloc.dart';
-import 'package:step_counter/features/step_counter/bloc/step_counter_status.dart';
+
+import '../bloc/step_counter_status.dart';
+
 
 class StepCounter extends StatelessWidget {
   const StepCounter({super.key});

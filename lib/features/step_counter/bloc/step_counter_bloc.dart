@@ -4,7 +4,7 @@ import 'package:pedometer/pedometer.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:step_counter/features/step_counter/bloc/step_counter_status.dart';
 
-part 'step_counter_event.dart';
+part '../bloc/step_counter_event.dart';
 part 'step_counter_state.dart';
 
 class StepCounterBloc extends Bloc<StepCounterEvent, StepCounterState> {

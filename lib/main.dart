@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:step_counter/app/home_screen.dart';
-import 'package:step_counter/features/step_counter/bloc/step_counter_bloc.dart';
 import 'package:step_counter/features/stop_watch/bloc/stop_watch_bloc.dart';
 import 'package:step_counter/features/stop_watch/ticker.dart';
+
+import 'features/step_counter/bloc/step_counter_bloc.dart';
 
 String formatDate(DateTime d) {
   return d.toString().substring(0, 19);
