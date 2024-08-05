@@ -26,10 +26,7 @@ class HistoryScreen extends StatelessWidget {
             'Workout History',
           ),
         ),
-        body: BlocConsumer<HistoryBloc, HistoryState>(
-          listener: (context, state) {
-            // TODO: implement listener
-          },
+        body: BlocBuilder<HistoryBloc, HistoryState>(
           builder: (context, state) {
             if (state.status is HistoryInitial) {
               return Center(
@@ -73,12 +70,6 @@ class HistoryScreen extends StatelessWidget {
                                       fontWeight: FontWeight.w200,
                                       fontSize: 13),
                             ),
-                            // leading: Icon(
-                            //   (state.status as HistoryLoaded)
-                            //       .workouts[index]
-                            //       .icon,
-                            //   color: Colors.white,
-                            // ),
                             trailing: Text(
                               '${(state.status as HistoryLoaded).workouts[index].time}sec',
                               style: Theme.of(context)
